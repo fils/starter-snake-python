@@ -8,6 +8,21 @@ We have started this for you, with a function to help remove the 'neck' directio
 from the list of possible moves!
 """
 
+def avoid_the_walls(my_head: Dict[str, int], my_body: List[dict], possible_moves: List[str]) -> List[str]:
+  """trying to avoid wall in 11 by 11 game """
+
+  if my_head["x"] == 10:
+    possible_moves.remove("right")
+  if my_head["x"] == 0:
+    possible_moves.remove("left")
+  if my_head["y"] == 10:
+    possible_moves.remove("up")
+  if my_head["y"] == 0:
+    possible_moves.remove("down")
+
+
+  return possible_moves
+
 
 def avoid_my_neck(my_head: Dict[str, int], my_body: List[dict], possible_moves: List[str]) -> List[str]:
     """
@@ -59,10 +74,15 @@ def choose_move(data: dict) -> str:
 
     # Don't allow your Battlesnake to move back in on it's own neck
     possible_moves = avoid_my_neck(my_head, my_body, possible_moves)
-
+    # possible_moves = avoid_wall
     # TODO: Using information from 'data', find the edges of the board and don't let your Battlesnake move beyond them
-    # board_height = ?
-    # board_width = ?
+    # board_height = 11
+    # board_width = 11
+    print(my_head)
+    print(my_body)
+
+    possible_moves = avoid_the_walls(my_head, my_body, possible_moves)
+
 
     # TODO Using information from 'data', don't let your Battlesnake pick a move that would hit its own body
 
