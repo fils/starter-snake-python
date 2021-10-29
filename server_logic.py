@@ -121,10 +121,12 @@ def choose_move(data: dict) -> str:
     # TODO: Using information from 'data', find the edges of the board and don't let your Battlesnake move beyond them
     # board_height = 11
     # board_width = 11
-    print(my_head)
-    print(my_body)
+    # print(my_head)
+    # print(my_body)
 
     possible_moves = avoid_the_walls(my_head, my_body, possible_moves)
+    possible_moves = avoid_body(my_head, my_body, possible_moves)
+
 
 
     # TODO Using information from 'data', don't let your Battlesnake pick a move that would hit its own body
