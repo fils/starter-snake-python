@@ -8,6 +8,49 @@ We have started this for you, with a function to help remove the 'neck' directio
 from the list of possible moves!
 """
 
+
+def avoid_body(my_head: Dict[str, int], my_body: List[dict], possible_moves: List[str]) -> List[str]:
+
+  # print(my_head)
+  # print(my_body)
+
+  
+  test = my_head["x"] + 1 
+  print("x {} in {}".format(test, my_body))
+  for item in my_body:
+    if test == item["x"]:
+      if ("right" in possible_moves):
+        possible_moves.remove("right")
+        print("I removed right")
+
+  test = my_head["x"] - 1 
+  print("x {} in {}".format(test, my_body))
+  for item in my_body:
+    if test == item["x"]:
+      if ("left" in possible_moves):
+        possible_moves.remove("left")
+        print("I removed left")
+  
+  test = my_head["y"] + 1 
+  print("y {} in {}".format(test, my_body))
+  for item in my_body:
+    if test == item["y"]:
+      if ("up" in possible_moves):
+        possible_moves.remove("up")
+        print("I removed up")
+
+  test = my_head["y"] - 1 
+  print("y {} in {}".format(test, my_body))
+  for item in my_body:
+    if test == item["y"]:
+      if ("down" in possible_moves):
+        possible_moves.remove("down")
+        print("I removed down")
+
+  
+  return possible_moves
+
+
 def avoid_the_walls(my_head: Dict[str, int], my_body: List[dict], possible_moves: List[str]) -> List[str]:
   """trying to avoid wall in 11 by 11 game """
 
